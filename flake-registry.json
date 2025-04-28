@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "flakes": [
     {
       "from": {
@@ -18,11 +17,13 @@
         "type": "indirect"
       },
       "to": {
+        "lastModified": 1745377448,
         "owner": "NixOS",
-        "ref": "release-24.11",
         "repo": "nixpkgs",
+        "rev": "507b63021ada5fee621b6ca371c4fca9ca46f52c",
         "type": "github"
       }
     }
-  ]
+  ],
+  "version": 2
 }
