@@ -8,16 +8,14 @@
         hsPkgs = haskell.packages.ghc983;
         hsPkgsFn = p: [ ];
       in {
-        devShells.default = mkShell {
-          buildInputs = with hsPkgs;
-            [
-              (ghcWithPackages hsPkgsFn)
-              haskell-language-server
-            ];
+        devShells.default0 = mkShell {
+          buildInputs = with hsPkgs; [
+            (ghcWithPackages hsPkgsFn)
+            haskell-language-server
+          ];
         };
-        devShells.tmp = hsPkgs.shellFor {
-          packages = p: [haskell-language-server];
-        };
+        devShells.default =
+          hsPkgs.shellFor { packages = p: [ p.haskell-language-server ]; };
       });
 
   nixConfig = {
