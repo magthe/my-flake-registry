@@ -6,11 +6,12 @@
       with nixpkgs.legacyPackages.${system};
       let
         hsPkgs = haskell.packages.ghc983;
-        hsPkgsFn = p: [ p.happy ];
+        hsPkgsFn = p: [ p.happy p.cmdargs ];
       in {
         devShells.default = mkShell {
           buildInputs = with hsPkgs; [
             (ghcWithPackages hsPkgsFn)
+            # hlint
             # haskell-language-server
           ];
         };
