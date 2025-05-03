@@ -6,7 +6,7 @@
       with nixpkgs.legacyPackages.${system};
       let
         hsPkgs = haskell.packages.ghc983;
-        hsPkgsFn = p: [ p.happy p.cmdargs ];
+        hsPkgsFn = p: [ p.happy p.cmdargs p.deriving-aeson ];
       in {
         devShells.default = mkShell {
           buildInputs = with hsPkgs; [
