@@ -5,14 +5,14 @@
     flake-utils.lib.eachDefaultSystem (system:
       with nixpkgs.legacyPackages.${system};
       let
-        hsPkgs = haskell.packages.ghc96;
-        hsPkgsFn = p: [ p.hello ];
+        hsPkgs = haskell.packages.ghc983;
+        hsPkgsFn = p: [ ];
       in {
         devShells.default = mkShell {
           buildInputs = with hsPkgs; [
             (ghcWithPackages hsPkgsFn)
             hlint
-            # haskell-language-server
+            haskell-language-server
           ];
         };
       });
