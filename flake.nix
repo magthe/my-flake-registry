@@ -6,19 +6,19 @@
       with nixpkgs.legacyPackages.${system};
       let
         hsPkgs = haskell.packages.ghc983;
-        hsPkgsFn = p: [ p.happy p.cmdargs p.deriving-aeson ];
+        hsPkgsFn = p: [ ];
       in {
         devShells.default = mkShell {
-          buildInputs = with hsPkgs; [
-            (ghcWithPackages hsPkgsFn)
-            # hlint
-            # haskell-language-server
-          ];
+          buildInputs = with hsPkgs;
+            [
+              (ghcWithPackages hsPkgsFn)
+              haskell-language-server
+            ];
         };
       });
 
   nixConfig = {
-    flake-registry = 
+    flake-registry =
       "https://raw.githubusercontent.com/magthe/my-flake-registry/main/flake-registry.json";
     extra-substituters = [ "https://magthe-dev.cachix.org" ];
     extra-trusted-public-keys = [
