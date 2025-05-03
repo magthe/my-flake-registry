@@ -17,10 +17,11 @@
         "type": "indirect"
       },
       "to": {
-        "lastModified": 1746248057,
-        "owner": "nixos",
+        "__final": true,
+        "lastModified": 1749755690,
+        "owner": "NixOs",
         "repo": "nixpkgs",
-        "rev": "068169fd59f89a357bc1f227ab75cf90524f2f7c",
+        "rev": "2a122da9493a4c65e9acb524c96aa3911294bb80",
         "type": "github"
       }
     }

@@ -8,17 +8,18 @@
         hsPkgs = haskell.packages.ghc983;
         hsPkgsFn = p: [ ];
       in {
-        devShells.default = mkShell {
+        devShells.default0 = mkShell {
           buildInputs = with hsPkgs; [
             (ghcWithPackages hsPkgsFn)
-            hlint
             haskell-language-server
           ];
         };
+        devShells.default =
+          hsPkgs.shellFor { packages = p: [ p.haskell-language-server ]; };
       });
 
   nixConfig = {
-    flake-registry = 
+    flake-registry =
       "https://raw.githubusercontent.com/magthe/my-flake-registry/main/flake-registry.json";
     extra-substituters = [ "https://magthe-dev.cachix.org" ];
     extra-trusted-public-keys = [
