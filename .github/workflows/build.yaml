@@ -22,7 +22,7 @@ jobs:
           TMPDIR: ${{ github.workspace }}/nix-tmp
         run: |
           mkdir ${TMPDIR}
-          nix --accept-flake-config develop --profile dev-profile -c true
+          nix --accept-flake-config develop '.#tmp' --profile dev-profile -c true
           cachix push magthe-dev dev-profile
       - name: Push to Cachix
         env:

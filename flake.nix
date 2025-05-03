@@ -15,6 +15,9 @@
               haskell-language-server
             ];
         };
+        devShells.tmp = hsPkgs.shellFor {
+          packages = p: [haskell-language-server];
+        };
       });
 
   nixConfig = {
