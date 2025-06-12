@@ -4,16 +4,8 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       with nixpkgs.legacyPackages.${system};
-      let
-        hsPkgs = haskell.packages.ghc983;
-        hsPkgsFn = p: [ ];
+      let hsPkgs = haskell.packages.ghc984;
       in {
-        devShells.default0 = mkShell {
-          buildInputs = with hsPkgs; [
-            (ghcWithPackages hsPkgsFn)
-            haskell-language-server
-          ];
-        };
         devShells.default =
           hsPkgs.shellFor { packages = p: [ p.haskell-language-server ]; };
       });
